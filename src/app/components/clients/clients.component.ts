@@ -11,6 +11,7 @@ import { Client } from '../../models/client';
 export class ClientsComponent implements OnInit {
   clients: Client[];
   totalOwed: number;
+  isLoaded: boolean = false;
 
   constructor(private clientService: ClientService) { }
 
@@ -19,6 +20,7 @@ export class ClientsComponent implements OnInit {
       .subscribe(clients => {
         this.clients = clients
         this.getTotalOwed();
+        this.isLoaded = true;
       });
   }
 
